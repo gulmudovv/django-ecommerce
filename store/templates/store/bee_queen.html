@@ -1,0 +1,26 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block title %}
+<title>Плодные матки | Долина Мёда</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="col-md-6 col-xl-3 mt-4 ml-5">
+        <div class="card" style="width: 600px;"> 
+
+  <img style="height: 500px;"class="card-img-top" src=" {{ beequeen.imageURL }}"  >
+  <div class="card-body">
+    <h5 class="card-title"><strong>{{ beequeen.title}}.</strong></h5>
+    <p class="card-text">{{ beequeen.description}}</p>
+    <h5><strong>Кол-во:</strong> {{beequeen.massa}}</h5>
+  	<h5 class="price_detail" style="display: inline-block; float: right"><strong>Цена: &#8399; {{beequeen.price|floatformat:0}}</strong></h5>
+    <hr>
+    <button data-product={{beequeen.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">В корзину</button>
+    <a class="btn btn-outline-success" href="{% url 'store'%}">Вернуться в магазин</a>
+  
+</div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block title %}
+<title>Долина Мёда</title>
+{% endblock title%}
+
+
+
+{% block content %}
+
+
+<div class="row">
+	{% for product in products %}
+	
+	<div class="col-lg-4">
+		<img class="thumbnail" src=" {{ product.imageURL }}">
+		<div class="box-element product">
+		<h6><strong>{{ product.title}}.</strong></h6>
+		
+			<hr>
+			<button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">В корзину</button>
+			<a class="btn btn-outline-success" href="{% url 'product_detail_url' id=product.id %}">Посмотреть</a>
+			<h5 class="price" style="display: inline-block; float: right"><strong>&#8399; {{product.price|floatformat:0}}</strong></h5>	
+		</div>
+	</div>
+	{% endfor %}
+
+	
+
+	
+	
+
+	
+
+	
+</div>
+{% endblock content %}
+

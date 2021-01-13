@@ -1,0 +1,26 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block title %}
+<title>{{product.title}} | Долина Мёда</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="col-md-6 col-xl-3 mt-4 ml-5">
+        <div class="card" style="width: 600px; margin: 10px;"> 
+
+  <img style="height: 500px;"class="card-img-top" src=" {{ product.imageURL }}"  >
+  <div class="card-body">
+    <h5 class="card-title"><strong>{{ product.title}}.</strong></h5>
+    <p class="card-text">{{ product.description}}</p>
+    <h5>Вес: {{product.massa}}</h5>
+  	<h5 class="price_detail" style="display: inline-block; float: right"><strong>Цена: &#8399; {{product.price|floatformat:0}}</strong></h5>
+    <hr>
+    <button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">В корзину</button>
+    <a class="btn btn-outline-success" href="{% url 'store'%}">Вернуться в магазин</a>
+  
+</div>
+  </div>
+</div>
+{% endblock content %}
+
